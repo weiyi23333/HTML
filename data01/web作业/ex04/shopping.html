@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>完善当当购物车页面</title>
+    <link type="text/css" rel="stylesheet" href="css/cartStyle.css" />
+</head>
+<body>
+    <div style="background-color: aqua;text-align: center;">
+        <li id="date"></li>
+    <br>
+        <li id="time"></li>
+    </div>
+    
+
+<div class="content">
+    <div class="logo">
+        <img src="images/logo.jpg"><span onclick="close_plan();">关闭</span>
+    </div>
+    <div class="cartList">
+        <ul>
+            <li><p  onclick="collection(0);">移入收藏</p><p onclick="del(0);">删除</p></li>
+            <li id="price0">¥159.00</li> 
+            <li>
+                <input type="button" name="minus" value="-" onclick="minus(0);">
+                <input type="text" name="amount" value="1" id="amount0">
+                <input type="button" name="plus" value="+" onclick="plus(0);"></li>
+            <li>¥<input type="text" name="price" value="159.00" id="itemPrice0"></li>
+           
+        </ul>
+        <ul>
+            <li><p  onclick="collection(1);">移入收藏</p><p onclick="del(1);">删除</p></li>
+            <li id="price1">¥159.00</li>
+            <li>
+                <input type="button" name="minus" value="-" onclick="minus(1);">
+                <input type="text" name="amount" value="1" id="amount1">
+                <input type="button" name="plus" value="+" onclick="plus(1);"></li>
+            <li>¥<input type="text" name="price" value="159.00" id="itemPrice1"></li>
+        </ul>
+        <ol>
+            <li id="totalPrice">&nbsp;</li>
+           
+
+            
+            <li><span onclick="accounts();">结 算</span></li>
+        </ol>
+    </div>
+</div>
+<script >function close_plan() {
+    window.close();
+}
+
+function del() {
+var result = confirm("确定删除？");
+if (result) {
+    alert("删除成功！");
+} }
+function collection() {
+alert("商品已收藏");
+}
+function plus(id) {
+var amountField = document.getElementById("amount" + id);
+var priceField = document.getElementById("itemPrice" + id);
+var amount = parseInt(amountField.value);
+amountField.value = amount + 1;
+priceField.value = (amount + 1) * 159.00;
+}
+function minus(id) {
+var amountField = document.getElementById("amount" + id);
+var priceField = document.getElementById("itemPrice" + id);
+var amount = parseInt(amountField.value);
+if (amount > 1) {
+    amountField.value = amount - 1;
+    priceField.value = (amount - 1) * 159.00;
+}}
+function accounts() {
+var totalPrice = parseFloat(document.getElementById("itemPrice0").value) +
+ parseFloat(document.getElementById("itemPrice1").value);
+document.getElementById("totalPrice").textContent = " ¥" + totalPrice.toFixed(2);
+}
+function updateTime() {
+var now = new Date();
+Month=now.getMonth()+1
+document.getElementById("date").textContent = now.getFullYear() + "年" + Month + "月" + now.getDate() + "日";
+document.getElementById("time").textContent = now.toLocaleTimeString();
+}
+setInterval(updateTime, 1000);
+updateTime();</script>
+</body>
+</html>

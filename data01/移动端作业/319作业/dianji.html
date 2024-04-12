@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12星座星空图</title>
+  <style>
+    /* CSS 样式代码 */
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #0;
+      overflow: hidden;
+    }
+    /* ... */
+  </style>
+</head>
+<body>
+  <div class="star-container" id="constellation">
+    <div class="star" style="top: 30%; left: 40%;" onclick="showInfo('白羊座')">baiyang</div>
+    <div class="star" style="top: 50%; left: 60%;" onclick="showInfo('金牛座')"></div>
+    <!-- 其他星座元素 -->
+  </div>
+
+  <div id="info" style="display: none;">
+    <!-- 显示星座信息的容器 -->
+  </div>
+
+  <script>
+    function showInfo(constellation) {
+      // 根据星座名称展示相关信息
+      const infoContainer = document.getElementById('info');
+      infoContainer.innerHTML = `你点击了${constellation}，这是关于${constellation}的更多信息。`;
+      infoContainer.style.display = 'block';
+    }
+  </script>
+</body>
+</html>

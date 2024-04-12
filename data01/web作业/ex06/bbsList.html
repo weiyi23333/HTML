@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>课工场论坛列表</title>
+    <link href="css/bbs.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="bbs">
+        <!-- 调用函数 -->
+        <header><span onclick="post()">我要发帖</span></header>
+        <section>
+            <!-- 添加类 -->
+            <ul class="bbsList"></ul>
+        </section>
+        <div class="post">
+            <input class="title" placeholder="请输入标题（1-50个字符）">
+            所属版块：
+            <!-- 添加id -->
+            <select id="sel">
+                <option>请选择版块</option>
+                <option>电子书籍</option>
+                <option>新课来了</option>
+                <option>新手报到</option>
+                <option>职业规划</option>
+            </select>
+            <textarea class="content"></textarea>
+            <!-- 调用函数postSubmit -->
+            <input class="btn" value="发布" onclick="postSubmit()">
+        </div>
+    </div>
+    <script>
+        function post() {
+    document.querySelector('.post').style.display = 'block';
+  }
+  var tou = ["tou01.jpg", "tou02.jpg", "tou03.jpg", "tou04.jpg"];
+  function postSubmit() {
+    var newLi = document.createElement("li");
+    var touDiv = document.createElement("div");
+    var touImg = document.createElement("img");
+    var titleH1 = document.createElement("h1");
+    var titleH2 = document.createElement("h2");
+    var contentP = document.createElement("p");
+    var nameSpan = document.createElement("span");
+    var timeSpan = document.createElement("span");
+  
+    var iNum = Math.floor(Math.random() * 4);
+    touImg.src = `images/${tou[iNum]}`;
+  
+    var title = document.querySelector('.title').value;
+    titleH1.textContent = title;   
+    var contentText = document.querySelector('.content').value;
+    contentP.textContent = contentText;
+ 
+    
+  
+    var name = document.querySelector('#sel').value;
+    titleH2.textContent = name;
+
+ 
+  
+    var myDate = new Date();
+    var currentDate = `${myDate.getFullYear()}-${myDate.getMonth() + 1}-${myDate.getDate()} ${myDate.getHours()}:${myDate.getMinutes()}`;
+    timeSpan.textContent = currentDate;
+  
+    touDiv.appendChild(touImg);
+    contentP.appendChild(nameSpan);
+    contentP.appendChild(timeSpan);
+    newLi.append(touDiv, titleH1, contentP);
+  
+    var ul = document.querySelector('.bbsList');
+    ul.insertBefore(newLi, ul.firstChild);
+    document.querySelector('.post').style.display = 'none';
+  }
+
+  
+    </script>
+
+</body>
+
+</html>

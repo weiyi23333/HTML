@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0f 100%);
+    height: 500vh;
+    /* display: flex; */
+    /* align-items: center; */
+    top: 200px;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    perspective: 1300px;
+    overflow-y: auto
+
+}
+
+
+.texttwo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+}
+.textone {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translateX(-50%);
+}
+.textthree {
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translateX(-50%);
+}
+:root {
+    --margin-top: 0;
+    --margin-left: 0;
+    --animation-duration: 0s;
+    --animation-delay: 0s;
+}
+div {
+    transform-style: preserve-3d;
+}
+.word-box,
+.word-box .word{
+position: absolute;
+animation: rotY 0s linear infinite;
+animation-duration: var(--animation-duration);
+animation-delay: var(--animation-delay);
+}
+.word-box{
+    margin-top: var(--margin-top);
+}
+.word-box .word{
+    margin-left: var(--margin-left);
+}
+.word-box .word {
+    animation-duration: reverse;
+}
+@keyframes rotY {
+    to{
+        transform: rotateY(360deg);
+    }
+    
+}
+
+
+.HOME {
+    top: 500px;
+    left: 10px;
+    height: 3000px; 
+    width: 1100px;
+    overflow-y: auto; /* 如果内容超过容器高度，则启用垂直滚动条 */
+    padding: 100px; /* 为容器添加填充 */
+    /* background-color:; 为容器应用背景颜色 */
+    display: flex;
+
+    border: 2px solid #86d3f5; /* 添加边框，2px宽度，黑色 */
+    border-radius: 10px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,255,255,0.1)), url('your-image.jpg'); 
+  }
+
+  .task {
+    top: 100px;
+    left: 1000px;
+    height: 300px; 
+    width: 100px;
+    overflow-y: auto; /* 如果内容超过容器高度，则启用垂直滚动条 */
+    padding: 100px; /* 为容器添加填充 */
+    /* background-color:; 为容器应用背景颜色 */
+    /* display: flex; */
+
+    border: 2px solid #e50707; /* 添加边框，2px宽度，黑色 */
+    border-radius: 10px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,255,255,0.1)), url('your-image.jpg'); 
+    
+}
+
+
+
+.task2 {
+    top: 200px;
+    left: 100px;
+    height: 300px; 
+    width: 100px;
+    overflow-y: auto; /* 如果内容超过容器高度，则启用垂直滚动条 */
+    padding: 100px; /* 为容器添加填充 */
+    /* background-color:; 为容器应用背景颜色 */
+    /* display: flex; */
+
+    border: 2px solid #e50707; /* 添加边框，2px宽度，黑色 */
+    border-radius: 10px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,255,255,0.1)), url('your-image.jpg'); 
+    
+}
+
+
+
+
+

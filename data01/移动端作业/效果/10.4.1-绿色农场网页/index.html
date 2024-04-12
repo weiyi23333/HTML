@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <img src="./images/光标.png" class="mouse" alt="">
+<div id="container">
+  <div id="top">
+    <div id="logo"><img src="images/logo.png" width="156" height="83" /></div>
+    <div id="ss"><img src="images/ss.jpg" width="277" height="31" class="pic" />设为首页&nbsp; |&nbsp; 收藏网站</div>
+    <div id="daohang">
+      <ul>
+        <li><a href="#">网站首页</a></li>
+        <li><a href="#">关于我们</a></li>
+        <li><a href="#">产品展示</a></li>
+        <li><a href="#">基地概况</a></li>
+        <li><a href="#">果蔬常识</a></li>
+        <li><a href="#">新闻中心</a></li>
+        <li> <a href="#">联系我们 </a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="banner">
+<marquee  style="width: 185; height: 145px; ">
+
+  <img src="images/pic01.jpg" width="180" height="135" id="pic01"/>
+  <img src="images/pic02.jpg" width="180" height="135" id="pic02"/>
+  <img src="images/pic03.jpg" width="180" height="135" id="pic03"/>
+  <img src="images/pic04.jpg" width="180" height="135" id="pic04"/>
+  <img src="images/pic05.jpg" width="180" height="135" id="pic05"/>
+  <img src="images/pic01.jpg" width="180" height="135" id="pic01"/>
+  <img src="images/pic02.jpg" width="180" height="135" id="pic02"/>
+  <img src="images/pic03.jpg" width="180" height="135" id="pic03"/>
+  <img src="images/pic04.jpg" width="180" height="135" id="pic04"/>
+  <img src="images/pic05.jpg" width="180" height="135" id="pic05"/>
+
+</marquee>
+ 
+</div>
+  <div id="main"><img src="images/pic06.jpg" width="1400" height="320" /></div>
+  <div id="footer">© 1997-2016 惠丰绿色果蔬有限公司版权所有&nbsp;&nbsp; About us&nbsp; |&nbsp; 公司简介&nbsp; |&nbsp;&nbsp; 联系方法&nbsp; |&nbsp;&nbsp; 招聘信息&nbsp;&nbsp; |&nbsp;&nbsp; 客户服务&nbsp;&nbsp; |&nbsp;&nbsp; 隐私政策&nbsp;&nbsp; |&nbsp;&nbsp; 广告服务&nbsp;&nbsp; |&nbsp;&nbsp; 网站地图&nbsp;&nbsp; |&nbsp;&nbsp; 意见反馈&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; 不良信息举报</div>
+</div>
+
+<script>
+  var mouse = document.querySelector('.mouse');
+    window.addEventListener('mousemove',function(event){    
+    mouse.style.left = event.clientX - mouse.offsetWidth/3 + 'px' ;
+    mouse.style.top = event.clientY -mouse.offsetHeight/3 + 'px';       
+});
+
+window.addEventListener('mouseout', function(event) {
+            mouse.style.display = 'none'; // 隐藏光标
+        });
+
+        window.addEventListener('mouseover', function(event) {
+            mouse.style.display = 'block'; // 显示光标
+        });
+</script>
+</body>
+</html>

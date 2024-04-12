@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Three.js Ursa Major</title>
+    <style>
+      body { margin: 0; }
+      canvas { display: block; }
+    </style>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+      // 在此处编写Three.js代码
+      // 创建场景、相机和渲染器
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+// 定义星点的位置
+const starPositions = [
+  { x: 0, y: 0, z: -10 }, // 北斗七星的每颗星的位置坐标
+  // 添加其他星座的星点位置
+];
+
+// 创建星球
+const starGeometry = new THREE.SphereGeometry(0.2, 16, 16);
+const starMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+const stars = [];
+
+for (let i = 0; i < starPositions.length; i++) {
+  const star = new THREE.Mesh(starGeometry, starMaterial);
+  star.position.set(starPositions[i].x, starPositions[i].y, starPositions[i].z);
+  stars.push(star);
+  scene.add(star);
+}
+
+// 创建星座连线
+const lineMaterial = new THREE.LineBasicMaterial({ color: 0xffffff });
+const linePoints = [];
+for (let i = 0; i < stars.length; i++) {
+  linePoints.push(new THREE.Vector3(stars[i].position.x, stars[i].position.y, stars[i].position.z));
+}
+linePoints.push(new THREE.Vector3(stars[0].position.x, stars[0].position.y, stars[0].position.z));
+
+const lineGeometry = new THREE.BufferGeometry().setFromPoints(linePoints);
+const line = new THREE.Line(lineGeometry, lineMaterial);
+scene.add(line);
+
+camera.position.z = 5;
+
+// 创建动画循环
+function animate() {
+  requestAnimationFrame(animate);
+  renderer.render(scene, camera);
+}
+animate();
+    </script>
+  </body>
+</html>
